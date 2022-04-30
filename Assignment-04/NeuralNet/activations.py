@@ -51,10 +51,9 @@ def linear_prime(x):
     """
     Derivative of linear function
     """
-    if type(x) == np.ndarray:
-        return np.ones(x.shape)
-    else:
-        return 1
+ 
+    return np.ones(x.shape)
+    
 
 # soft max function
 def softmax(x):

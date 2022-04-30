@@ -16,14 +16,14 @@ net = Network()
 net.add(FCLayer(2, 3))
 net.add(ActivationLayer(tanh, tanh_prime))
 net.add(FCLayer(3, 3))
-net.add(ActivationLayer(softmax, softmax_prime))
+net.add(ActivationLayer(tanh, tanh_prime))
 net.add(FCLayer(3, 1))
 net.add(ActivationLayer(tanh, tanh_prime))
 
 
 # train
 # net.use(mse, mse_prime)
-net.use(cross_entropy, cross_entropy_prime)
+net.use(mse, mse_prime)
 net.fit(x_train, y_train, epochs=1000, learning_rate=0.1)
 
 # test
