@@ -52,6 +52,8 @@ def linear_prime(x):
     Derivative of linear function
     """
  
+    # x will be a vector of shape (n,1)
+    # return derivative of linear function
     return np.ones(x.shape)
     
 
@@ -77,6 +79,6 @@ def softmax_prime(x):
     # Reshape the 1-d softmax to 2-d so that np.dot will do the matrix multiplication
     s = s.reshape(-1,1)
     a =  np.diagflat(s) - np.dot(s, s.T)
-    print(a.shape)
+  
     return a
 
