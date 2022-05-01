@@ -15,21 +15,31 @@ class Tanh(Activation):
 # implement linear activation
 
 
-class Linear(Activation):
-    def __init__(self):
-        def linear(x):
-            return x
+# class Linear(Activation):
+#     def __init__(self):
+#         def linear(x):
+#             return x
 
-        def linear_prime(x):
-            if type(x) == np.ndarray:
-                return np.ones(x.shape)
-            else:
-                return 1
+#         def linear_prime(x):
+#             if type(x) == np.ndarray:
+#                 return np.ones(x.shape)
+#             else:
+#                 return 1
 
-        super().__init__(linear, linear_prime)
-
-
+#         super().__init__(linear, linear_prime)
 class Sigmoid(Activation):
+    def __init__(self):
+        def sigmoid(x):
+            return 1 / (1 + np.exp(-x))
+
+        def sigmoid_prime(x):
+            s = sigmoid(x)
+            return s * (1 - s)
+
+        super().__init__(sigmoid, sigmoid_prime)
+
+
+class Linear(Activation):
     def __init__(self):
         def sigmoid(x):
             return 1 / (1 + np.exp(-x))

@@ -15,6 +15,8 @@ def mse_prime(y_true, y_pred):
 
 
 def binary_cross_entropy(y_true, y_pred):
+    # check if log is not going to be valid
+
     return np.mean(-y_true * np.log(y_pred) - (1 - y_true) * np.log(1 - y_pred))
 
 
@@ -37,3 +39,17 @@ def cross_entropy(y, X):
     log_likelihood = -np.log(p[range(m), y])
     loss = np.sum(log_likelihood) / m
     return loss
+
+
+def cross_entropy_prime(X, y):
+    """
+    X is the output from fully connected layer (num_examples x num_classes)
+    y is labels (num_examples x 1)
+        Note that y is not one-hot encoded vector. 
+        It can be computed as y.argmax(axis=1) from one-hot encoded vectors of labels if required.
+    """
+    m = y.shape[0]
+    grad = softmax(X)
+    grad[range(m), y] -= 1
+    grad = grad/m
+    return grad
