@@ -2,7 +2,7 @@ from layer import Layer
 import numpy as np
 
 # inherit from base class Layer
-class FCLayer(Layer):
+class Layer(Layer):
     # input_size = number of input neurons
     # output_size = number of output neurons
     def __init__(self, input_size, output_size):
