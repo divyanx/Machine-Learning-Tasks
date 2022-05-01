@@ -9,6 +9,7 @@ from activations import Sigmoid
 from losses import binary_cross_entropy, binary_cross_entropy_prime
 from network import train, predict
 
+
 def preprocess_data(x, y, limit):
     zero_index = np.where(y == 0)[0][:limit]
     one_index = np.where(y == 1)[0][:limit]
@@ -20,6 +21,7 @@ def preprocess_data(x, y, limit):
     y = np_utils.to_categorical(y)
     y = y.reshape(len(y), 2, 1)
     return x, y
+
 
 # load MNIST from server, limit to 100 images per class since we're not training on GPU
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
