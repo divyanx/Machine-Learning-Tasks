@@ -2,55 +2,55 @@ class Network:
     def __init__(self):
         self.layers = []
         self.loss = None
-        self.loss_prime = None
+        self.der_loss = None
 
-    # add layer to network
-    def add(self, layer):
+    # use layer to network
+    def insert(self, layer):
         self.layers.append(layer)
 
-    # set loss to use
-    def use(self, loss, loss_prime):
+    # set loss to employ
+    def employ(self, loss, der_loss):
         self.loss = loss
-        self.loss_prime = loss_prime
+        self.der_loss = der_loss
 
-    # predict output for given input
+    # predict out for given input
     def predict(self, input_data):
         # sample dimension first
-        samples = len(input_data)
-        result = []
+        in_data = len(input_data)
+        ans = []
 
-        # run network over all samples
-        for i in range(samples):
+        # run network over all input data(sample data)
+        for i in range(in_data):
             # forward propagation
-            output = input_data[i]
+            out = input_data[i]
             for layer in self.layers:
-                output = layer.forward_propagation(output)
-            result.append(output)
+                out = layer.frwd_pass(out)
+            ans.append(out)
 
-        return result
+        return ans
 
     # train the network
     def fit(self, x_train, y_train, epochs, learning_rate):
         # sample dimension first
-        samples = len(x_train)
+        in_data = len(x_train)
 
         # training loop
         for i in range(epochs):
-            err = 0
-            for j in range(samples):
+            mistake = 0
+            for j in range(in_data):
                 # forward propagation
-                output = x_train[j]
+                out = x_train[j]
                 for layer in self.layers:
-                    output = layer.forward_propagation(output)
+                    out = layer.frwd_pass(out)
 
                 # compute loss (for display purpose only)
-                err += self.loss(y_train[j], output)
+                mistake += self.loss(y_train[j], out)
 
                 # backward propagation
-                error = self.loss_prime(y_train[j], output)
+                error = self.der_loss(y_train[j], out)
                 for layer in reversed(self.layers):
-                    error = layer.backward_propagation(error, learning_rate)
+                    error = layer.back_pass(error, learning_rate)
 
-            # calculate average error on all samples
-            err /= samples
-            print('epoch %d/%d   error=%f' % (i+1, epochs, err))
+            # calculate average error on all input data
+            mistake /= in_data
+            print('epoch %d/%d   error=%f' % (i+1, epochs, mistake))
