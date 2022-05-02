@@ -3,8 +3,8 @@ import numpy as np
 
 from network import Network
 
-from fc_layer import Layer
-from activation_layer import Activation
+from fullyconnlayer import Layer
+from activation_layer import ActivationFuncLayer
 from activations import tanh, tanh_prime,softmax,softmax_prime,sigmoid,sigmoid_prime,relu,relu_prime,linear,linear_prime
 from losses import mse, mse_prime, cross_entropy, cross_entropy_prime
 from sklearn.datasets import load_boston
@@ -31,12 +31,12 @@ print(y_train[0])
 
 # network
 net = Network()
-net.add(Layer(13, 13))
-net.add(Activation(linear, linear_prime))
-# net.add(Layer(30, 30))
-# net.add(Activation(tanh, tanh_prime))
-net.add(Layer(13, 1))
-net.add(Activation(linear, linear_prime))
+net.insert(Layer(13, 13))
+net.insert(ActivationFuncLayer(linear, linear_prime))
+# net.insert(Layer(30, 30))
+# net.insert(ActivationFuncLayer(tanh, tanh_prime))
+net.insert(Layer(13, 1))
+net.insert(ActivationFuncLayer(linear, linear_prime))
 
 
 # train

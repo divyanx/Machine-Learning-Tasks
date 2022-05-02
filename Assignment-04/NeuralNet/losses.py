@@ -15,7 +15,7 @@ def mse_prime(y_true, y_pred):
 
 # cross entropy function and its derivative
 def cross_entropy(y_true, y_pred):
-    # remove zeros and add some noise
+    # remove zeros and insert some noise
     y_pred[y_pred < 1e-8] = 1e-8
     # print(y_pred)
     # print(y_pred)

@@ -2,7 +2,7 @@ import numpy as np
 
 from network import Network
 from fullyconnlayer import FullyConnLayer
-from activation_layer import ActivationFuncLayer
+from activation_layer import ActivationFuncLayerFuncLayer
 from activations import tanh, tanh_prime
 from losses import mse, mse_prime
 
@@ -13,9 +13,9 @@ y_train = np.array([[[0]], [[1]], [[1]], [[0]]])
 # network
 obj = Network()
 obj.insert(FullyConnLayer(2, 3))
-obj.insert(ActivationFuncLayer(tanh, tanh_prime))
+obj.insert(ActivationFuncLayerFuncLayer(tanh, tanh_prime))
 obj.insert(FullyConnLayer(3, 1))
-obj.insert(ActivationFuncLayer(tanh, tanh_prime))
+obj.insert(ActivationFuncLayerFuncLayer(tanh, tanh_prime))
 
 # train
 obj.employ(mse, mse_prime)
