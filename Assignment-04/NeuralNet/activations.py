@@ -20,8 +20,8 @@ def sigmoid_prime(x):
 
 
 def linear(x):
-    return x
+    return 1/(1+np.exp(-x))
 
 
 def linear_prime(x):
-    return 1
+    return sigmoid(x)*(1-sigmoid(x))
