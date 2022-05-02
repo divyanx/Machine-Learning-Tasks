@@ -1,18 +1,19 @@
 from layer import Layer
 
 # inherit from base class Layer
-class ActivationLayer(Layer):
-    def __init__(self, activation, activation_prime):
-        self.activation = activation
-        self.activation_prime = activation_prime
+class ActivationFuncLayer(Layer):
+    def __init__(self, activ, der_activ):
+        self.activ = activ
+        self.der_activ = der_activ
 
     # returns the activated input
-    def forward_propagation(self, input_data):
-        self.input = input_data
-        self.output = self.activation(self.input)
-        return self.output
+    # foraward pass function
+    def frwd_pass(self, sample_data):
+        self.in_set = sample_data
+        self.out_set = self.activ(self.in_set)
+        return self.out_set
 
-    # Returns input_error=dE/dX for a given output_error=dE/dY.
-    # learning_rate is not used because there is no "learnable" parameters.
-    def backward_propagation(self, output_error, learning_rate):
-        return self.activation_prime(self.input) * output_error
+    # Returns in_set_error=dE/dX for a given out_set_error=dE/dY.
+    # learning_rate is not employd becaemploy there is no "learnable" parameters.
+    def back_pass(self, out_set_error, learning_rate):
+        return self.der_activ(self.in_set) * out_set_error
