@@ -1,21 +1,21 @@
 import numpy as np
 
 
-def cross_entropy(y_true, y_pred):
+def cross_entropy(true, pred):
     """
-    Computes the cross entropy between y_true and y_pred.
-    y_true is a one-hot encoded vector of shape (batch_size, num_classes).
-    y_pred is a vector of shape (batch_size, num_classes).
+    Computes the cross entropy between true and pred.
+    true is a one-hot encoded vector of shape (batch_size, num_classes).
+    pred is a vector of shape (batch_size, num_classes).
 
     """
-    return np.mean(-y_true * np.log(y_pred) - (1 - y_true) * np.log(1 - y_pred))
+    return np.mean(-true * np.log(pred) - (1 - true) * np.log(1 - pred))
 
 
-def cross_entropy_prime(y_true, y_pred):
+def cross_entropy_derivative(true, pred):
     """
-    Computes the derivative of cross entropy with respect to y_pred.
-    y_true is a one-hot encoded vector of shape (batch_size, num_classes).
-    y_pred is a vector of shape (batch_size, num_classes).
+    Computes the derivative of cross entropy with respect to pred.
+    true is a one-hot encoded vector of shape (batch_size, num_classes).
+    pred is a vector of shape (batch_size, num_classes).
 
     """
-    return ((1 - y_true) / (1 - y_pred) - y_true / y_pred) / np.size(y_true)
+    return ((1 - true) / (1 - pred) - true / pred) / np.size(true)
