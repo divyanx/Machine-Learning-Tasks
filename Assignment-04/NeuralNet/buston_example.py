@@ -40,8 +40,8 @@ net.insert(ActivationFuncLayer(linear, linear_prime))
 
 
 # train
-# net.use(mse, mse_prime)
-net.use(mse, mse_prime)
+# net.employ(mse, mse_prime)
+net.employ(mse, mse_prime)
 net.fit(x_train, y_train, epochs=1000, learning_rate=1)
 
 # test

@@ -4,7 +4,7 @@ class Network:
         self.loss = None
         self.der_loss = None
 
-    # use layer to network
+    # employ layer to network
     def insert(self, layer):
         self.layers.append(layer)
 

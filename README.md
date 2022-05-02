@@ -2,11 +2,11 @@
 
 This is our group repo for assignments for machine learning course
 
-Colaboration is easy when we use git and github, this repo is private so our work is safe and we need not worry about plagarism unless one of our group members decide to share our code, so we trust you, please dont do it, you are allowed to help your friends none the less with your knowledge but not with the code written by you or any of us for the purpose of the assignments.
+Colaboration is easy when we employ git and github, this repo is private so our work is safe and we need not worry about plagarism unless one of our group members decide to share our code, so we trust you, please dont do it, you are allowed to help your friends none the less with your knowledge but not with the code written by you or any of us for the purpose of the assignments.
 
 ## How to do the assignments
 
-As per the informations available, most of the assignments will be assigned to do in python notebooks, so we can surely use google colab or local jupyter notebook. But google colab is better because of the cloud features and directly save to github features, and for better performance they can be connected to local jupyter runtime directly.
+As per the informations available, most of the assignments will be assigned to do in python notebooks, so we can surely employ google colab or local jupyter notebook. But google colab is better becaemploy of the cloud features and directly save to github features, and for better performance they can be connected to local jupyter runtime directly.
 
 ## How to collaborate
 
@@ -21,4 +21,4 @@ Never tamper someone else's branch and directly to main branch.
 
 ### Better collaboration
 
-When discussing about specific code section etc use discussion forums and issues feature so its easy for others to work and check.
+When discussing about specific code section etc employ discussion forums and issues feature so its easy for others to work and check.

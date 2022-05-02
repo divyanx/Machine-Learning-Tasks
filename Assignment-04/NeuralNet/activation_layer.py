@@ -14,6 +14,6 @@ class ActivationFuncLayer(Layer):
         return self.out_set
 
     # Returns in_set_error=dE/dX for a given out_set_error=dE/dY.
-    # learning_rate is not used because there is no "learnable" parameters.
+    # learning_rate is not employd becaemploy there is no "learnable" parameters.
     def back_pass(self, out_set_error, learning_rate):
         return self.der_activ(self.in_set) * out_set_error

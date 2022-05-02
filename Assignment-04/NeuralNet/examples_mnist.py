@@ -42,7 +42,7 @@ net.insert(ActivationFuncLayer(linear, linear_prime))
 
 # train on 1000 samples
 # as we didn't implemented mini-batch GD, training will be pretty slow if we update at each iteration on 60000 samples...
-net.use(cross_entropy, cross_entropy_prime)
+net.employ(cross_entropy, cross_entropy_prime)
 net.fit(x_train[0:1000], y_train[0:100], epochs=1000, learning_rate=0.001)
 
 # test on 3 samples
